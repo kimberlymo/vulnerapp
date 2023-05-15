@@ -13,6 +13,11 @@ spring:
       static-locations: # quickhack to facilitate static development
         - file:src/main/resources/static/
         - classpath:/static/
+  autoconfigure:
+    exclude: org.springframework.boot.autoconfigure.security.servlet.SecurityAutoConfiguration
+  security:
+    user:
+      password: Bobby123
 logging:
   pattern:
     dateformat: HH:mm:ss
@@ -23,3 +28,4 @@ management:
     web:
       exposure:
         include: '*'
+
