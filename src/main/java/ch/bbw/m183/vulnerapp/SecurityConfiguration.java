@@ -7,7 +7,7 @@ import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
 import org.springframework.security.config.annotation.web.builders.HttpSecurity;
 import org.springframework.security.config.annotation.web.configuration.EnableWebSecurity;
-import org.springframework.security.config.annotation.web.configurers.AbstractHttpConfigurer;
+import org.springframework.security.config.annotation.web.configuration.WebSecurityCustomizer;
 import org.springframework.security.core.userdetails.User;
 import org.springframework.security.core.userdetails.UserDetailsService;
 import org.springframework.security.crypto.factory.PasswordEncoderFactories;
@@ -15,18 +15,21 @@ import org.springframework.security.crypto.password.PasswordEncoder;
 import org.springframework.security.web.SecurityFilterChain;
 import org.springframework.security.web.csrf.CookieCsrfTokenRepository;
 
-import java.util.Collections;
-
 @Slf4j
 @Configuration
 @EnableWebSecurity
 @RequiredArgsConstructor
-public class SecurityConfiguration {
+public class SecurityConfiguration  {
     @Bean
     public UserDetailsService userDetailsService(UserRepository userRepository) {
         return username -> userRepository.findById(username)
-                .map(entity -> new User(entity.getUsername(), entity.getPassword(), Collections.emptyList()))
+                .map(entity -> new User(entity.getUsername(), entity.getPassword(), entity.getAuthorities()))
                 .orElseThrow();
+    }
+
+    @Bean
+    public WebSecurityCustomizer webSecurityCustomizer() {
+        return (web) -> web.ignoring().requestMatchers("/api/blog/**");
     }
 
     @Bean
@@ -36,7 +39,6 @@ public class SecurityConfiguration {
                 .csrf().csrfTokenRepository(CookieCsrfTokenRepository.withHttpOnlyFalse());
         http
                 .authorizeHttpRequests()
-                .requestMatchers("/api/blog/**").permitAll()
                 .requestMatchers("/api/**").authenticated()
                 .anyRequest().permitAll();
         return http.build();
