@@ -23,6 +23,7 @@ logging:
     dateformat: HH:mm:ss
   level:
     org.hibernate.SQL: DEBUG
+    org.springframework.security.web.csrf: DEBUG
 management:
   endpoints:
     web:

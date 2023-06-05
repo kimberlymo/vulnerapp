@@ -10,6 +10,7 @@ import org.springframework.context.event.ContextRefreshedEvent;
 import org.springframework.context.event.EventListener;
 import org.springframework.data.domain.Page;
 import org.springframework.data.domain.Pageable;
+import org.springframework.security.access.prepost.PreAuthorize;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 
@@ -24,6 +25,7 @@ public class BlogService {
 		return blogRepository.findAll(pageable);
 	}
 
+	@PreAuthorize("hasRole('USER')")
 	public UUID createBlog(BlogEntity blog) {
 		blog.setId(UUID.randomUUID());
 		return blogRepository.save(blog)
