@@ -42,8 +42,8 @@ public class AdminService {
 
 	@EventListener(ContextRefreshedEvent.class)
 	public void loadTestUsers() {
-		Stream.of(new UserEntity().setUsername("admin").setFullname("Super Admin").setPassword("super5ecret").setRole("ADMIN"),
-						new UserEntity().setUsername("fuu").setFullname("Johanna Doe").setPassword("bar").setRole("USER"))
+		Stream.of(new UserEntity().setUsername("admin@admin.ch").setFullname("Super Admin").setPassword("super5ecret").setRole("ADMIN"),
+						new UserEntity().setUsername("fuu@fuu.ch").setFullname("Johanna Doe").setPassword("barbarbar").setRole("USER"))
 				.forEach(this::createUser);
 	}
 }
