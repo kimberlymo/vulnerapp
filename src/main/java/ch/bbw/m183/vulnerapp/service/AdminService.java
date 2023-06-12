@@ -24,18 +24,18 @@ public class AdminService {
 	private final PasswordEncoder passwordEncoder;
 	private final UserRepository userRepository;
 
-	@PreAuthorize("hasRole('ADMIN')")
+	@PreAuthorize("hasAuthority('ADMIN')")
 	public UserEntity createUser(UserEntity newUser) {
 		newUser.setPassword(passwordEncoder.encode(newUser.getPassword()));
 		return userRepository.save(newUser);
 	}
 
-	@PreAuthorize("hasRole('ADMIN')")
+	@PreAuthorize("hasAuthority('ADMIN')")
 	public Page<UserEntity> getUsers(Pageable pageable) {
 		return userRepository.findAll(pageable);
 	}
 
-	@PreAuthorize("hasRole('ADMIN')")
+	@PreAuthorize("hasAuthority('ADMIN')")
 	public void deleteUser(String username) {
 		userRepository.deleteById(username);
 	}

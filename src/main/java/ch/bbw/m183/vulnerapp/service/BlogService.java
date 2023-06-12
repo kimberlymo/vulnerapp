@@ -25,7 +25,7 @@ public class BlogService {
 		return blogRepository.findAll(pageable);
 	}
 
-	@PreAuthorize("hasRole('USER')")
+	@PreAuthorize("hasAuthority('USER')")
 	public UUID createBlog(BlogEntity blog) {
 		blog.setId(UUID.randomUUID());
 		return blogRepository.save(blog)

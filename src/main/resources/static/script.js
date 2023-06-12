@@ -16,7 +16,10 @@ function onLoginSubmit(event) {
         },
     }).then(filterOk)
         .then(response => response.json())
-        .then(user => window.sessionStorage.setItem("fullname", user.fullname))
+        .then(user => {
+            window.sessionStorage.setItem("fullname", user.fullname)
+            window.sessionStorage.setItem("token", "Basic " + btoa(username + ":" + password))
+        })
         .then(() => loginCheck());
 }
 
@@ -37,7 +40,8 @@ function onBlogSubmit(event) {
         method: "POST",
         headers: {
             "Content-Type": "application/json",
-            "X-XSRF-TOKEN": csrfToken
+            "X-XSRF-TOKEN": csrfToken,
+            "Authorization": window.sessionStorage.getItem("token")
         },
         body: JSON.stringify(data),
     }).then(filterOk)
@@ -72,7 +76,7 @@ function renderBlogs(blogs) {
 }
 
 function filterOk(response) {
-    if(response.ok) {
+    if (response.ok) {
         return response;
     }
     return Promise.reject(response);
