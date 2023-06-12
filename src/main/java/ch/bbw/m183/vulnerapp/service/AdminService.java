@@ -1,6 +1,5 @@
 package ch.bbw.m183.vulnerapp.service;
 
-import java.util.List;
 import java.util.stream.Stream;
 
 import ch.bbw.m183.vulnerapp.datamodel.UserEntity;
