@@ -22,16 +22,18 @@ Beschreibung
 
 Die Applikation enthält verschiedene Sicherheitslücken, die behoben werden müssen. Das grundlegende Verhalten der Applikation soll erhalten bleiben. Ziel der Aufgabe ist es, die Sicherheit der Applikation durch die Implementierung von gängigen Sicherheitsmassnahmen zu verbessern. Die grundlegenden Anforderungen umfassen:
 
-- Verwendung von korrekten REST-Verben.
-- Implementierung einer Authentifizierungslösung (z.B. BasicAuth).
-- Enforce RBAC (z.B. User- und Admin-Services unterscheiden).
+- Verwendung von korrekten REST-Verben. ✔️
+- Implementierung einer Authentifizierungslösung (z.B. BasicAuth). ✔️
+- Enforce RBAC (z.B. User- und Admin-Services unterscheiden). ✔️
 - Aktivieren von CSRF-Protection und Erklärung, warum diese Implementation funktioniert.
-- Implementierung einer sicheren Passwort-Speicherung (Hashing, Passwortregeln).
-- Strikte Inputvalidierung (für REST-Endpunkte und Datenbank).
-- Behebung der initialen Sicherheitslücken (SQLi, XSS, CSRF).
-- Implementierung von securityrelevanten (Unit-)Tests.
+- Implementierung einer sicheren Passwort-Speicherung (Hashing, Passwortregeln). ✔️
+- Strikte Inputvalidierung (für REST-Endpunkte und Datenbank). ✔️
+- Behebung der initialen Sicherheitslücken (SQLi, XSS, CSRF). 
+- Implementierung von securityrelevanten (Unit-)Tests. ✔️
 
-Zusätzlich zu den grundlegenden Anforderungen können weitere Anpassungen vorgenommen werden, z.B. sicherheitsrelevante HTTP-Headers wie `content-security-policy` (CSP) zu setzen, ein Limit auf fehlerhaften Loginversuchen um Brute-Force zu verhindern, oder weniger information-disclosure via Fehlermedungen.
+Zusätzlich zu den grundlegenden Anforderungen können weitere Anpassungen vorgenommen werden, z.B. sicherheitsrelevante HTTP-Headers wie `content-security-policy` (CSP) zu setzen
+, ein Limit auf fehlerhaften Loginversuchen um Brute-Force zu verhindern
+, oder weniger information-disclosure via Fehlermedungen.
 
 Etwas komplexere Erweitereungen könnte die Implementierung von OIDC-Authentifizierung gegenüber GitHub OAuth2, die Einrichtung eines automatisierten OWASP- oder CVE-Scanners oder die Aktivierung von HTTPS mit einem Self-Signed Zertifikat, sein.
 

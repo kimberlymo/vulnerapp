@@ -50,15 +50,13 @@ public class SecurityConfiguration {
         CsrfTokenRequestHandler handler1 = delegate::handle;
 
         return http.httpBasic(basic -> basic.realmName("vulnerapp"))
-                .csrf(cfg ->
-                        cfg.csrfTokenRepository(CookieCsrfTokenRepository.withHttpOnlyFalse())
-                                .csrfTokenRequestHandler(handler1)
-                )
-                .authorizeHttpRequests(auth ->
-                        auth
+                .csrf(cfg -> cfg.csrfTokenRepository(CookieCsrfTokenRepository.withHttpOnlyFalse())
+                                .csrfTokenRequestHandler(handler1))
+                .authorizeHttpRequests(auth -> auth
                                 .requestMatchers("/api/**").authenticated()
-                                .anyRequest().permitAll()
-                ).build();
+                                .anyRequest().permitAll())
+
+                .build();
     }
 
     @Bean
