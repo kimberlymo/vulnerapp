@@ -28,7 +28,7 @@ Die Applikation enthält verschiedene Sicherheitslücken, die behoben werden mü
 - Aktivieren von CSRF-Protection und Erklärung, warum diese Implementation funktioniert.
 - Implementierung einer sicheren Passwort-Speicherung (Hashing, Passwortregeln). ✔️
 - Strikte Inputvalidierung (für REST-Endpunkte und Datenbank). ✔️
-- Behebung der initialen Sicherheitslücken (SQLi, XSS, CSRF). 
+- Behebung der initialen Sicherheitslücken (SQLi, XSS, CSRF). ✔️
 - Implementierung von securityrelevanten (Unit-)Tests. ✔️
 
 Zusätzlich zu den grundlegenden Anforderungen können weitere Anpassungen vorgenommen werden, z.B. sicherheitsrelevante HTTP-Headers wie `content-security-policy` (CSP) zu setzen
