@@ -32,7 +32,7 @@ Die Applikation enthält verschiedene Sicherheitslücken, die behoben werden mü
 - Implementierung von securityrelevanten (Unit-)Tests. ✔️
 
 Zusätzlich zu den grundlegenden Anforderungen können weitere Anpassungen vorgenommen werden, z.B. sicherheitsrelevante HTTP-Headers wie `content-security-policy` (CSP) zu setzen
-, ein Limit auf fehlerhaften Loginversuchen um Brute-Force zu verhindern
+, ein Limit auf fehlerhaften Loginversuchen um Brute-Force zu verhindern ✔️
 , oder weniger information-disclosure via Fehlermedungen.
 
 Etwas komplexere Erweitereungen könnte die Implementierung von OIDC-Authentifizierung gegenüber GitHub OAuth2, die Einrichtung eines automatisierten OWASP- oder CVE-Scanners oder die Aktivierung von HTTPS mit einem Self-Signed Zertifikat, sein.
@@ -46,3 +46,13 @@ Diskussion und Selbstevaluation
 Es wird empfohlen hierfür ChatGPT zu nutzen. Achte aber darauf, dass die Selbstevaluation dennoch persönlich ist, die Diskussion exakt auf ihre Applikation passt, und alle generierten Aussagen korrekt sind.
 
 Abgabe als Git-Repo.
+
+## Diskussion
+
+
+## Selbstevaluation
+Durch dieses Projekt habe ich vieles erlernt über Security sowie auch spring security. 
+Ich weiss jetzt was für security exceptions eine Applikation hat und weiss wie ich einige von denen lösen kann.
+Bei diesem Projekt hatte ich zwischendurch Probleme mit Springboot, da es für mich wie Magie ist. Sobald man eine Annotation vergessen hat,
+ging der ganze Code nicht mehr. Dank den Tutorials war es für mich einfacher die Implementierung zu verstehen und ich versuchte die Sachen mehrmals aus (try and error)
+Jedoch konnte ich ein Problem nicht lösen. Gerne wollte ich customized error messages, wenn der Benutzer sich nicht anmelden konnte. Leider habe ich die Lösung dazu nicht gefunden.

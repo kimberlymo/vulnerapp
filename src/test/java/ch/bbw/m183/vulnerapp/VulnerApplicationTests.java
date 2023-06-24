@@ -1,6 +1,7 @@
 package ch.bbw.m183.vulnerapp;
 
 import ch.bbw.m183.vulnerapp.datamodel.BlogEntity;
+import ch.bbw.m183.vulnerapp.service.LoginAttemptService;
 import org.junit.jupiter.api.Test;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.test.context.SpringBootTest;
@@ -68,4 +69,22 @@ class VulnerApplicationTests {
 				.expectStatus()
 				.is2xxSuccessful();
 	}
+
+	@Test
+	public void testLimitForLoginTrys() {
+		for (int i = 0; i < LoginAttemptService.MAX_ATTEMPT; i++) {
+			webTestClient.get().uri("/api/user/whoami")
+					.headers(WebTestClientHelper::addInvalidPasswordCredentialsToHeader)
+					.exchange()
+					.expectStatus()
+					.isUnauthorized();
+		}
+
+		webTestClient.get().uri("/api/user/whoami")
+				.headers(WebTestClientHelper::addUserCredentialsToHeader)
+				.exchange()
+				.expectStatus()
+				.isUnauthorized();
+	}
+
 }
