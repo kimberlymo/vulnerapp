@@ -1,6 +1,5 @@
 package ch.bbw.m183.vulnerapp;
 
-import org.springframework.boot.test.context.SpringBootTest;
 import org.springframework.http.HttpHeaders;
 
 import java.nio.charset.StandardCharsets;
