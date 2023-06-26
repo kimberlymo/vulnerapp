@@ -14,7 +14,7 @@ class VulnerApplicationTests {
 
 	@Test
 	public void createBlogCsrfTest() {
-		var csrfToken = "bobby123hhaha";
+		var csrfToken = "bobby123";
 
 		webTestClient.post().uri("/api/blog")
 				.headers(WebTestClientHelper::addAdminCredentialsToHeader)
