@@ -18,7 +18,7 @@ Featuring:
 ./gradlew bootRun
 ```
 
-Beschreibung
+**Beschreibung**
 
 Die Applikation enthält verschiedene Sicherheitslücken, die behoben werden müssen. Das grundlegende Verhalten der Applikation soll erhalten bleiben. Ziel der Aufgabe ist es, die Sicherheit der Applikation durch die Implementierung von gängigen Sicherheitsmassnahmen zu verbessern. Die grundlegenden Anforderungen umfassen:
 
